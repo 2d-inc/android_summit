@@ -1,5 +1,7 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'example_progress_action.dart';
+import 'liquid_progress.dart';
 import 'progress_reporting_action.dart';
 
 void main() => runApp(MyApp());
@@ -10,8 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          primarySwatch: Colors.blue,
+          scaffoldBackgroundColor: const Color.fromRGBO(48, 109, 211, 1)),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -39,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         itemBuilder: (context, index) {
           final action = progressActions[index];
           return Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(0),
             child: Center(
               child: GestureDetector(
                 onTap: () {
@@ -50,23 +52,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   });
                 },
                 child: Container(
-                  width: 150,
-                  height: 150,
-                  child: action != null
-                      ? ValueListenableBuilder<double>(
-                          builder: (context, value, _) {
-                            return Container(
-                                child: Center(
-                                  child: Text(
-                                    "Progress: ${(value * 100).round()}%",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                                color: value == 1 ? Colors.green : Colors.blue);
-                          },
-                          valueListenable: action.progress,
-                        )
-                      : Container(color: Colors.red),
+                  width: 200,
+                  height: 200,
+                  child: LiquidProgress(action),
                 ),
               ),
             ),
