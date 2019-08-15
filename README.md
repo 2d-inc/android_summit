@@ -1,4 +1,5 @@
 # Android Summit
+<img src="liquid.gif" align="right">
 
 # Intro
 
