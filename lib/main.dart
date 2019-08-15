@@ -10,8 +10,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+          primarySwatch: Colors.blue,
+          scaffoldBackgroundColor: const Color.fromRGBO(48, 109, 211, 1)),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -62,7 +62,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                     style: TextStyle(color: Colors.white),
                                   ),
                                 ),
-                                color: value == 1 ? Colors.green : Colors.blue);
+                                color: action.isComplete
+                                    ? Colors.green
+                                    : Colors.blue);
                           },
                           valueListenable: action.progress,
                         )

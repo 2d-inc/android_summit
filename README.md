@@ -32,6 +32,7 @@ We'll also want to make sure that our animation can work when it's instanced mul
 # Flare Architecture
 
 Briefly discuss Flare files, Actors, Artboards, Animations, Controllers, etc.
+<img src="Flare Overview.png">
 
 ## FlareActor
 
