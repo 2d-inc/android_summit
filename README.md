@@ -7,7 +7,7 @@ We're going to show you how to build a determinate and indeterminate progress an
 
 ## Sample Code
 
-Get the source code for the example project. This a Flare-less project that shows the basics of what we're trying to achieve. Make sure you export with time from keyframe.
+Get the source code for the example project. This a Flare-less project that shows the basics of what we're trying to achieve.
 
 [https://github.com/2d-inc/android_summit](https://github.com/2d-inc/android_summit)
 
