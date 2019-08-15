@@ -27,12 +27,6 @@ class _LiquidProgressState extends State<LiquidProgress> {
   }
 
   @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return FlareActor(
       "assets/Liquid Download.flr",

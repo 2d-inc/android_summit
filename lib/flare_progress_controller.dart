@@ -20,6 +20,7 @@ class FlareProgressController extends FlareController {
 
   double _progressValue = 0;
   double _time = 0;
+  
   ProgressReportingAction _action;
   ProgressReportingAction get action => _action;
   set action(ProgressReportingAction value) {
@@ -30,7 +31,6 @@ class FlareProgressController extends FlareController {
     _action = value;
     syncState();
 
-    action?.progress?.addListener(onProgressChanged);
     isActive.value = true;
   }
 
@@ -48,15 +48,6 @@ class FlareProgressController extends FlareController {
         _nextState = _ProgressState.start;
       }
     }
-  }
-
-  void onProgressChanged() {
-    // make sure controller is active as progress changes
-    isActive.value = true;
-  }
-
-  void dispose() {
-    action?.progress?.removeListener(onProgressChanged);
   }
 
   @override
