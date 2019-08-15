@@ -42,13 +42,14 @@ Create a new assets folder at the top level of the project.
 
 Add flare_flutter and assets folder to dependencies.
 ```
-    dependencies:	
-    	flare_flutter: ^1.5.5
+  dependencies:	
+    flare_flutter: ^1.5.5
     
-    flutter:
-    	assets:
-    		- assets/
+  flutter:
+    assets:
+    - assets/
 ```
+
 ## Exporting Flare Content
 
 Go to Guido's public Flare file here:
