@@ -35,7 +35,7 @@ class _LiquidProgressState extends State<LiquidProgress> {
   @override
   Widget build(BuildContext context) {
     return FlareActor(
-      "assets/Workshop Testing.flr",
+      "assets/Liquid Download.flr",
       controller: _controller,
       fit: BoxFit.contain,
       alignment: Alignment.center,

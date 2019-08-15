@@ -74,13 +74,9 @@ class FlareProgressController extends FlareController {
       case _ProgressState.inProgress:
         currentAnimation = _indeterminate;
         if (_action != null) {
-          double diff = _action.progress.value - _progressValue;
-          if (diff.abs() < 0.001) {
-            _progressValue = _action.progress.value;
-          } else {
-            _progressValue += diff * min(1, elapsed * 5);
-          }
-          if (_progressValue >= 1) {
+          _progressValue +=
+              (_action.progress.value - _progressValue) * min(1, elapsed * 5);
+          if (_action.progress.value >= 1 && _progressValue >= 0.99) {
             _nextState = _ProgressState.complete;
           }
 
@@ -111,10 +107,9 @@ class FlareProgressController extends FlareController {
         _time = currentAnimation.duration != 0
             ? _time % currentAnimation.duration
             : 0;
+      } else {
+        _time = 0;
       }
-	  else {
-		  _time = 0;
-	  }
     }
 
     if (currentAnimation != null && currentAnimation.isLooping) {
@@ -133,7 +128,7 @@ class FlareProgressController extends FlareController {
     _complete = artboard.getAnimation("Complete");
 
     _idle?.apply(0, artboard, 1);
-    _state = _ProgressState.idle;
+
     syncState();
   }
 
